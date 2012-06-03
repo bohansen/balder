@@ -37,3 +37,6 @@ gem "mini_magick"
 # -- EXIF
 # Mini exif tool. Can be disabled. Remove exif_read and exif_write filters in photo model
 gem "mini_exiftool"
+
+# Video processing
+#gem "streamio-ffmpeg"

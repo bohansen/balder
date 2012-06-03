@@ -9,6 +9,8 @@ class Photo < ActiveRecord::Base
   
   validates :title, :presence => true
   
+  before_save :update_file_attributes
+
   before_validation :set_title
   before_create :exif_read
   #before_update :exif_write
@@ -80,5 +82,15 @@ class Photo < ActiveRecord::Base
     photo.Keywords = self.tags
     photo.save
   end
+
+  private
+
+  def update_file_attributes
+    if file.present? && file_changed?
+      self.content_type = file.file.content_type
+    end
+  end
+  
+
 
 end

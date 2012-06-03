@@ -32,7 +32,7 @@ module ScanFiles
   end
   
   def self.ScanFile(path, debug)
-    return unless [".jpeg", ".jpg", ".gif", ".png"].include?( File.extname(path).downcase )
+    return unless [".webm",".jpeg", ".jpg", ".gif", ".png"].include?( File.extname(path).downcase )
     puts "analyze file " + path
     photo = Photo.find_or_initialize_by_path( path )
     puts "new record " + photo.new_record?.to_s

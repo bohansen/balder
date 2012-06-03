@@ -10,7 +10,7 @@ $(document).ready(function() {
 			// General settings
 			runtimes : 'flash,html5,browserplus,silverlight,gears',
 			url : '<%= photos_path %>',
-			max_file_size : '10mb',
+			max_file_size : '100mb',
 			multipart: true,  
 			   multipart_params: {  
 				'<%= get_session_key %>' : encodeURIComponent('<%= cookies[get_session_key] %>'),
@@ -23,7 +23,7 @@ $(document).ready(function() {
 
 			// Specify what files to browse for
 			filters : [
-				{title : "Image files", extensions : "jpg,gif,png,bmp,jpeg,tif,tiff"}
+				{title : "Media files", extensions : "webm,JPG,jpg,gif,png,bmp,jpeg,tif,tiff"}
 			],
 
 			// Flash settings

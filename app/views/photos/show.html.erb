@@ -14,7 +14,12 @@
 			<% end %>
 		</p>
 	</div>
-  <p><%= link_to_if @next, image_tag(@photo.file.single.url ), [ @photo.album.collections.first, @photo.album, @next] %></p>
+<%= @photo.content_type %>
+<% if @photo.content_type.to_s.include?('webm') %>
+  <p><%= link_to_if @next, video_tag(@photo.file.webm.url,:width=>"950" ), [ @photo.album.collections.first, @photo.album, @next] %></p>
+<% else %>
+  <p><%= link_to_if @next, image_tag(@photo.file.single.url), [ @photo.album.collections.first, @photo.album, @next] %></p>
+<% end %>
 </div>
 
 <p><%= @photo.description %></p>

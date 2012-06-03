@@ -80,7 +80,7 @@ class PhotosController < ApplicationController
     @photo.file = params[:file]
     respond_to do |format|
         if @photo.save
-          format.html { render :text => "FILEID:" + @photo.file.album.url }
+          format.html { render :text => "FILEID:" + @photo.file.album.url.to_s }
           format.xml  { render :nothing => true }
         else
           format.html { render :text => "ERRORS:" + @photo.errors.full_messages.join(" "), :status => 500 }
